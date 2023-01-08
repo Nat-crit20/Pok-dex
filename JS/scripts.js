@@ -10,7 +10,7 @@ let pokemonList = [
 for (let i = 0; i < pokemonList.length; i++) {
   let pokemon = pokemonList[i];
   let comment = `${pokemon.name} (height: ${pokemon.height})`;
-  if (pokemon.height >= 1) {
+  if (pokemon.height >= 2) {
     document.write(`<p>${comment}- Wow, that's big</p>`);
   } else {
     document.write(`<p>${comment}</p>`);
