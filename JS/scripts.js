@@ -37,19 +37,19 @@ let pokemonRepository = (function () {
   }
 
   function add(pokemon) {
-    let parameters = ["name", "height", "type"];
-    if (typeof pokemon === "object") {
-      let pokemonParams = Object.keys(pokemon);
-      for (let i = 0; i < parameters.length; i++) {
-        if (pokemonParams.includes(parameters[i])) {
-          continue;
-        } else {
-          return;
-        }
+    if (typeof pokemon !== "object") return;
+
+    const parameters = ["name", "height", "type"];
+    const pokemonParams = Object.keys(pokemon);
+
+    let accept = true;
+    for (let i = 0; i < parameters.length; i++) {
+      if (!pokemonParams.includes(parameters[i])) {
+        accept = false;
       }
-      return pokemonList.push(pokemon);
-    } else {
-      return;
+    }
+    if (accept) {
+      pokemonList.push(pokemon);
     }
   }
 
@@ -67,12 +67,12 @@ let pokemonRepository = (function () {
 })();
 
 pokemonRepository.add({
-  name: "Meloetta",
+  name: "Example1",
   height: 0.6,
   type: ["psychic", "normal"],
 });
 pokemonRepository.add({
-  name: "Meloetta",
+  name: "Example2",
   type: ["psychic", "normal"],
 });
 
