@@ -17,11 +17,19 @@ let pokemonRepository = (function () {
       return;
     }
   }
+  function find(pokemon) {
+    let result = pokemonList.filter((key) => {
+      return pokemon === key.name;
+    });
+    return result[0];
+  }
   return {
     getAll,
     add,
+    find,
   };
 })();
+console.log(pokemonRepository.find("Meloetta"));
 
 pokemonRepository.getAll().forEach((pokemon) => {
   let comment = `${pokemon.name} (height: ${pokemon.height})`;
