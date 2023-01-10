@@ -7,6 +7,16 @@ let pokemonRepository = (function () {
     { name: "Zekrom", height: 2.9, type: ["dragon", "electric"] },
     { name: "Meloetta", height: 0.6, type: ["psychic", "normal"] },
   ];
+  function getAll() {
+    return pokemonList;
+  }
+  function add(pokemon) {
+    return pokemonList.push(pokemon);
+  }
+  return {
+    getAll,
+    add,
+  };
 })();
 
 pokemonList.forEach((pokemon) => {
