@@ -7,12 +7,11 @@ let pokemonList = [
   { name: "Meloetta", height: 0.6, type: ["psychic", "normal"] },
 ];
 
-for (let i = 0; i < pokemonList.length; i++) {
-  let pokemon = pokemonList[i];
+pokemonList.forEach((pokemon) => {
   let comment = `${pokemon.name} (height: ${pokemon.height})`;
   if (pokemon.height >= 2) {
     document.write(`<p>${comment}- Wow, that's big</p>`);
   } else {
     document.write(`<p>${comment}</p>`);
   }
-}
+});
