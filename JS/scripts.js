@@ -50,10 +50,10 @@ pokemonRepository.add({
 });
 
 pokemonRepository.getAll().forEach((pokemon) => {
-  let comment = `${pokemon.name} (height: ${pokemon.height})`;
+  let pokemonDetails = `${pokemon.name} (height: ${pokemon.height})`;
   if (pokemon.height >= 2) {
-    document.write(`<p>${comment}- Wow, that's big</p>`);
+    document.write(`<p>${pokemonDetails}- Wow, that's big</p>`);
   } else {
-    document.write(`<p>${comment}</p>`);
+    document.write(`<p>${pokemonDetails}</p>`);
   }
 });
