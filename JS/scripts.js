@@ -11,7 +11,11 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
   function add(pokemon) {
-    return pokemonList.push(pokemon);
+    if (typeof pokemon === "object") {
+      return pokemonList.push(pokemon);
+    } else {
+      return;
+    }
   }
   return {
     getAll,
