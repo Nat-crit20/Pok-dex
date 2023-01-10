@@ -19,7 +19,7 @@ let pokemonRepository = (function () {
   };
 })();
 
-pokemonList.forEach((pokemon) => {
+pokemonRepository.getAll().forEach((pokemon) => {
   let comment = `${pokemon.name} (height: ${pokemon.height})`;
   if (pokemon.height >= 2) {
     document.write(`<p>${comment}- Wow, that's big</p>`);
