@@ -11,7 +11,16 @@ let pokemonRepository = (function () {
     return pokemonList;
   }
   function add(pokemon) {
+    let parameters = ["name", "height", "type"];
     if (typeof pokemon === "object") {
+      let pokemonParams = Object.keys(pokemon);
+      for (let i = 0; i < parameters.length; i++) {
+        if (pokemonParams.includes(parameters[i])) {
+          continue;
+        } else {
+          return;
+        }
+      }
       return pokemonList.push(pokemon);
     } else {
       return;
@@ -29,7 +38,16 @@ let pokemonRepository = (function () {
     find,
   };
 })();
-console.log(pokemonRepository.find("Meloetta"));
+
+pokemonRepository.add({
+  name: "Meloetta",
+  height: 0.6,
+  type: ["psychic", "normal"],
+});
+pokemonRepository.add({
+  name: "Meloetta",
+  type: ["psychic", "normal"],
+});
 
 pokemonRepository.getAll().forEach((pokemon) => {
   let comment = `${pokemon.name} (height: ${pokemon.height})`;
