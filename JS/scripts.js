@@ -78,4 +78,5 @@ pokemonRepository.add({
 
 pokemonRepository.getAll().forEach((pokemon) => {
   let list = document.querySelector(".pokemon-list");
+  let listItem = document.createElement("li");
 });
