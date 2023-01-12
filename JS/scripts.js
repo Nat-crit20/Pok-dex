@@ -77,10 +77,5 @@ pokemonRepository.add({
 });
 
 pokemonRepository.getAll().forEach((pokemon) => {
-  let pokemonDetails = `${pokemon.name} (height: ${pokemon.height})`;
-  if (pokemon.height >= 2) {
-    document.write(`<p>${pokemonDetails}- Wow, that's big</p>`);
-  } else {
-    document.write(`<p>${pokemonDetails}</p>`);
-  }
+  let list = document.querySelector(".pokemon-list");
 });
