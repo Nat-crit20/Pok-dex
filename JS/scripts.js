@@ -69,11 +69,15 @@ let pokemonRepository = (function () {
     listItem.appendChild(button);
     list.appendChild(listItem);
   }
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
   return {
     getAll,
     add,
     find,
     addListItem,
+    showDetails,
   };
 })();
 
@@ -90,3 +94,4 @@ pokemonRepository.add({
 pokemonRepository.getAll().forEach((pokemon) => {
   pokemonRepository.addListItem(pokemon);
 });
+let pokemonBtn = document.querySelectorAll(".pokemon-button");
