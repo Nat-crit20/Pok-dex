@@ -68,6 +68,7 @@ let pokemonRepository = (function () {
     button.innerText = inputList.name;
     listItem.appendChild(button);
     list.appendChild(listItem);
+    button.addEventListener("click", () => showDetails(inputList));
   }
   function showDetails(pokemon) {
     console.log(pokemon);
@@ -94,4 +95,3 @@ pokemonRepository.add({
 pokemonRepository.getAll().forEach((pokemon) => {
   pokemonRepository.addListItem(pokemon);
 });
-let pokemonBtn = document.querySelectorAll(".pokemon-button");
