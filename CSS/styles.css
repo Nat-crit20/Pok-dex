@@ -4,6 +4,8 @@ body {
 ul {
   list-style: none;
 }
+
+/* pokemon buttons */
 .pokemon-button {
   width: 70%;
   height: 3.3rem;

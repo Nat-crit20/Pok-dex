@@ -48,6 +48,7 @@ let pokemonRepository = (function () {
         accept = false;
       }
     }
+
     if (accept) {
       pokemonList.push(pokemon);
     }
@@ -57,6 +58,7 @@ let pokemonRepository = (function () {
     let result = pokemonList.filter((key) => {
       return pokemon === key.name;
     });
+
     return result[0];
   }
 
@@ -64,19 +66,25 @@ let pokemonRepository = (function () {
     let list = document.querySelector(".pokemon-list");
     let listItem = document.createElement("li");
     let button = document.createElement("button");
+
     button.classList.add("pokemon-button");
     button.innerText = inputList.name;
+
     listItem.appendChild(button);
     list.appendChild(listItem);
+
     // button.addEventListener("click", () => showDetails(inputList));
     addListener(button, () => showDetails(inputList));
   }
+
   function addListener(element, func) {
     element.addEventListener("click", func);
   }
+
   function showDetails(pokemon) {
     console.log(pokemon);
   }
+
   return {
     getAll,
     add,
@@ -85,16 +93,6 @@ let pokemonRepository = (function () {
     showDetails,
   };
 })();
-
-pokemonRepository.add({
-  name: "Example1",
-  height: 0.6,
-  type: ["psychic", "normal"],
-});
-pokemonRepository.add({
-  name: "Example2",
-  type: ["psychic", "normal"],
-});
 
 pokemonRepository.getAll().forEach((pokemon) => {
   pokemonRepository.addListItem(pokemon);
