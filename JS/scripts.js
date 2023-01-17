@@ -1,14 +1,29 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
+  const apiUrl = `https://pokeapi.co/api/v2/pokemon/`;
 
   function getAll() {
     return pokemonList;
+  }
+  function LoadList() {
+    let data = fetch(apiUrl);
+    let results = data
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    add(results.results);
   }
 
   function add(pokemon) {
     if (typeof pokemon !== "object") return;
 
-    const parameters = ["name", "height", "type"];
+    const parameters = ["name"];
     const pokemonParams = Object.keys(pokemon);
 
     let accept = true;
@@ -60,9 +75,11 @@ let pokemonRepository = (function () {
     find,
     addListItem,
     showDetails,
+    LoadList,
   };
 })();
 
 pokemonRepository.getAll().forEach((pokemon) => {
   pokemonRepository.addListItem(pokemon);
 });
+pokemonRepository.LoadList();
