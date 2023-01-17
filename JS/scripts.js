@@ -34,7 +34,7 @@ let pokemonRepository = (function () {
         return res.json();
       })
       .then((res) => {
-        item.imageUrl = res.sprites.font_default;
+        item.imageUrl = res.sprites.front_default;
         item.height = res.height;
       })
       .catch((err) => {
@@ -88,7 +88,13 @@ let pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
-    console.log(pokemon);
+    return loadDetails(pokemon)
+      .then(() => {
+        console.log(pokemon);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   return {
