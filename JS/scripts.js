@@ -5,19 +5,26 @@ let pokemonRepository = (function () {
   function getAll() {
     return pokemonList;
   }
-  function LoadList() {
+
+  function loadList() {
     let data = fetch(apiUrl);
     let results = data
       .then((res) => {
         return res.json();
       })
       .then((res) => {
-        console.log(res);
+        res.results.forEach((item) => {
+          let pokemon = {
+            name: item.name,
+            detailUrl: item.url,
+          };
+          add(pokemon);
+        });
       })
       .catch((err) => {
         console.log(err);
       });
-    add(results.results);
+    return results;
   }
 
   function add(pokemon) {
@@ -75,11 +82,11 @@ let pokemonRepository = (function () {
     find,
     addListItem,
     showDetails,
-    LoadList,
+    loadList,
   };
 })();
-
-pokemonRepository.getAll().forEach((pokemon) => {
-  pokemonRepository.addListItem(pokemon);
+pokemonRepository.loadList().then(() => {
+  pokemonRepository.getAll().forEach((pokemon) => {
+    pokemonRepository.addListItem(pokemon);
+  });
 });
-pokemonRepository.LoadList();
