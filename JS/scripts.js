@@ -99,8 +99,29 @@ let pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
+    let modalContainer = document.querySelector("#modal-container");
+    modalContainer.classList.add("is-visible");
+
+    let modal = document.createElement("div");
+    modal.classList.add("modal");
+    modalContainer.appendChild(modal);
+
+    let nameTitle = document.createElement("h2");
+    let text = document.createElement("p");
+    let img = document.createElement("img");
+
+    let closeBtn = document.createElement("button");
+    closeBtn.innerText = "X";
+    modal.appendChild(closeBtn);
+
     return loadDetails(pokemon)
       .then(() => {
+        nameTitle.innerText = pokemon.name;
+        text.innerText = `Height ${pokemon.height}`;
+        img.src = pokemon.imageUrl;
+        modal.appendChild(nameTitle);
+        modal.appendChild(text);
+        modal.appendChild(img);
         console.log(pokemon);
       })
       .catch((err) => {
