@@ -106,13 +106,13 @@ let pokemonRepository = (function () {
     modal.classList.add("modal");
     modalContainer.appendChild(modal);
 
-    let nameTitle = document.createElement("h2");
-    let text = document.createElement("p");
-    let img = document.createElement("img");
-
     let closeBtn = document.createElement("button");
     closeBtn.innerText = "X";
     modal.appendChild(closeBtn);
+
+    let nameTitle = document.createElement("h2");
+    let text = document.createElement("p");
+    let img = document.createElement("img");
 
     return loadDetails(pokemon)
       .then(() => {
