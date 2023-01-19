@@ -2,6 +2,8 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/`;
 
+  let modalContainer = document.querySelector("#modal-container");
+
   function getAll() {
     return pokemonList;
   }
@@ -99,7 +101,6 @@ let pokemonRepository = (function () {
   }
 
   function showDetails(pokemon) {
-    let modalContainer = document.querySelector("#modal-container");
     modalContainer.innerHTML = "";
 
     modalContainer.classList.add("is-visible");
@@ -139,7 +140,6 @@ let pokemonRepository = (function () {
   }
 
   function hideDetails() {
-    let modalContainer = document.querySelector("#modal-container");
     modalContainer.classList.remove("is-visible");
   }
 
