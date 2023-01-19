@@ -162,6 +162,12 @@ let pokemonRepository = (function () {
     }
   });
 
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
+      hideDetails();
+    }
+  });
+
   return {
     getAll,
     add,
