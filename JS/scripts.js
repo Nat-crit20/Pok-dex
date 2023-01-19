@@ -100,6 +100,8 @@ let pokemonRepository = (function () {
 
   function showDetails(pokemon) {
     let modalContainer = document.querySelector("#modal-container");
+    modalContainer.innerHTML = "";
+
     modalContainer.classList.add("is-visible");
 
     let modal = document.createElement("div");
@@ -113,6 +115,7 @@ let pokemonRepository = (function () {
     closeBtn.classList.add("modal-close");
     closeBtn.innerText = "X";
     modalHead.appendChild(closeBtn);
+    closeBtn.addEventListener("click", hideDetails);
 
     let nameTitle = document.createElement("h2");
     let text = document.createElement("p");
@@ -133,6 +136,11 @@ let pokemonRepository = (function () {
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  function hideDetails() {
+    let modalContainer = document.querySelector("#modal-container");
+    modalContainer.classList.remove("is-visible");
   }
 
   function showLoadingMessage(text) {
