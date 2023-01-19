@@ -155,6 +155,13 @@ let pokemonRepository = (function () {
     message.parentElement.removeChild(message);
   }
 
+  modalContainer.addEventListener("click", (e) => {
+    let target = e.target;
+    if (target === modalContainer) {
+      hideDetails();
+    }
+  });
+
   return {
     getAll,
     add,
