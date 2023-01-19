@@ -106,12 +106,17 @@ let pokemonRepository = (function () {
     modal.classList.add("modal");
     modalContainer.appendChild(modal);
 
+    let modalHead = document.createElement("div");
+    modalHead.classList.add("modal-head");
+
     let closeBtn = document.createElement("button");
+    closeBtn.classList.add("modal-close");
     closeBtn.innerText = "X";
-    modal.appendChild(closeBtn);
+    modalHead.appendChild(closeBtn);
 
     let nameTitle = document.createElement("h2");
     let text = document.createElement("p");
+    text.classList.add("modal-info");
     let img = document.createElement("img");
 
     return loadDetails(pokemon)
@@ -119,7 +124,8 @@ let pokemonRepository = (function () {
         nameTitle.innerText = pokemon.name;
         text.innerText = `Height ${pokemon.height}`;
         img.src = pokemon.imageUrl;
-        modal.appendChild(nameTitle);
+        modalHead.appendChild(nameTitle);
+        modal.appendChild(modalHead);
         modal.appendChild(text);
         modal.appendChild(img);
         console.log(pokemon);

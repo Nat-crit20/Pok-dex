@@ -43,20 +43,31 @@ ul {
 
 .modal {
   margin: auto;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   background: #fff;
   padding: 15px;
-  width: 100%;
+  width: 70%;
   max-width: 700px;
   text-align: left;
+}
+.modal-head {
+  width: 100%;
+}
+.modal-info {
+  align-self: flex-start;
+}
+.modal img {
+  width: 150px;
 }
 
 .modal-close {
   float: right;
-  -webkit-appearance: none;
   border: 0;
   background: none;
   color: #777;
-  text-decoration: underline;
+  cursor: pointer;
 }
