@@ -152,7 +152,6 @@ let pokemonRepository = (function () {
 
   // Bootstrap modal
   function showDetails(pokemon) {
-    let modalHeader = $(".modal-header");
     let modalBody = $(".modal-body");
     let modalTitle = $(".modal-title");
 
