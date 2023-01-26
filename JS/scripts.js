@@ -95,7 +95,7 @@ let pokemonRepository = (function () {
       .catch((err) => {
         console.error(err);
       });
-    console.log(item);
+    showDetailsModal(item);
   };
 
   function searchFunc() {
@@ -135,15 +135,18 @@ let pokemonRepository = (function () {
 
   // Bootstrap modal
   let showDetails = async function (pokemon) {
+    await loadDetails(pokemon).catch((err) => {
+      console.log(err);
+    });
+    return showDetailsModal(pokemon);
+  };
+
+  function showDetailsModal(pokemon) {
     let modalBody = $(".modal-body");
     let modalTitle = $(".modal-title");
 
     modalBody.empty();
     modalTitle.empty();
-
-    await loadDetails(pokemon).catch((err) => {
-      console.log(err);
-    });
 
     let nameElement = $("<h1>" + pokemon.name + "</h1>");
     let heightElement = $("<p>Height: " + pokemon.height + "</p>");
@@ -159,7 +162,7 @@ let pokemonRepository = (function () {
     modalBody.append(typesElement);
 
     return;
-  };
+  }
 
   function showLoadingMessage(text) {
     let container = document.querySelector(".container");
