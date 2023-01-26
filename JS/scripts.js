@@ -77,12 +77,13 @@ let pokemonRepository = (function () {
 
   let find = async function (pokemon) {
     let item = {};
-    let data = fetch(`${apiUrl}${pokemon}`);
+    let data = fetch(`${apiUrl}${pokemon.toLowerCase()}`);
     await data
       .then((res) => {
         return res.json();
       })
       .then((res) => {
+        showLoadingMessage(`Loading ${res.name} data now...`);
         item.name = res.name;
         item.imageUrl = res.sprites.front_default;
         item.height = res.height;
@@ -91,11 +92,17 @@ let pokemonRepository = (function () {
           item.type.push(element.type.name);
         });
         item.weight = res.weight;
+        setTimeout(() => hideLoadingMessage(), 500);
       })
       .catch((err) => {
         console.error(err);
       });
-    showDetailsModal(item);
+    console.log(item);
+    if (!item.name) {
+      return;
+    } else {
+      showDetailsModal(item);
+    }
   };
 
   function searchFunc() {
