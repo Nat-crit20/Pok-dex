@@ -87,11 +87,13 @@ let pokemonRepository = (function () {
     let button = document.createElement("button");
     listItem.classList.add("list-group-item");
 
+    button.setAttribute("type", "button");
     button.classList.add("pokemon-button");
     button.classList.add("btn");
     button.classList.add("btn-primary");
-
     button.setAttribute("data-toggle", "modal");
+    button.setAttribute("data-target", "#pokemonModal");
+
     button.innerText = inputList.name;
 
     listItem.appendChild(button);
@@ -158,6 +160,8 @@ let pokemonRepository = (function () {
 
     return loadDetails(pokemon)
       .then(() => {
+        let name = $("<h1>" + pokemon.name + "</h1>");
+        modalTitle.append(name);
         console.log(pokemon);
       })
       .catch((err) => {
