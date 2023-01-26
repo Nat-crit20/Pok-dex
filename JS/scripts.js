@@ -48,7 +48,10 @@ let pokemonRepository = (function () {
       .then((res) => {
         item.imageUrl = res.sprites.front_default;
         item.height = res.height;
-        item.type = res.types;
+        item.type = [];
+        res.types.forEach((element) => {
+          item.type.push(element.type.name);
+        });
         item.weight = res.weight;
       })
       .catch((err) => {
@@ -107,6 +110,7 @@ let pokemonRepository = (function () {
   function addListener(element, func) {
     element.addEventListener("click", func);
   }
+
   /* 
   // Original Create modal
   function showDetails(pokemon) {
@@ -160,15 +164,17 @@ let pokemonRepository = (function () {
 
     return loadDetails(pokemon)
       .then(() => {
-        let name = $("<h1>" + pokemon.name + "</h1>");
-        let height = $("<p>Height: " + pokemon.height + "</p>");
-        let weight = $("<p>Weight: " + pokemon.weight + "</p>");
-        let image = $("<img>");
-        image.attr("src", pokemon.imageUrl);
-        modalTitle.append(name);
-        modalBody.append(height);
-        modalBody.append(weight);
-        modalBody.append(image);
+        let nameElement = $("<h1>" + pokemon.name + "</h1>");
+        let heightElement = $("<p>Height: " + pokemon.height + "</p>");
+        let weightElement = $("<p>Weight: " + pokemon.weight + "</p>");
+        let imageElement = $("<img>");
+        let typesElement = $("<p> Types: " + pokemon.type + "</p>");
+        imageElement.attr("src", pokemon.imageUrl);
+        modalTitle.append(nameElement);
+        modalBody.append(heightElement);
+        modalBody.append(weightElement);
+        modalBody.append(typesElement);
+        modalBody.append(imageElement);
         console.log(pokemon);
       })
       .catch((err) => {
