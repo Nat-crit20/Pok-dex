@@ -20,7 +20,7 @@ Trainers should be able to:
 
 ### Links
 
-- Live Site URL: [https://Nat-crit20.github.io/Advice-generator-app/](https://Nat-crit20.github.io/Advice-generator-app/)
+- Live Site URL: [https://nat-crit20.github.io/Pok-dex/](https://nat-crit20.github.io/Pok-dex/)
 
 ## My process
 
