@@ -2,7 +2,7 @@ let pokemonRepository = (function () {
   let pokemonList = [];
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/`;
 
-  let modalContainer = document.querySelector("#modal-container");
+  let modalContainer = document.querySelector("#pokemonModal");
 
   function getAll() {
     return pokemonList;
@@ -174,18 +174,18 @@ let pokemonRepository = (function () {
     imageElement.attr("src", pokemon.imageUrl);
 
     modalTitle.append(nameElement);
+    modalBody.append(imageElement);
     modalBody.append(heightElement);
     modalBody.append(weightElement);
     modalBody.append(typesElement);
-    modalBody.append(imageElement);
 
     return;
   };
 
   // Hide Modal
-  function hideDetails() {
-    modalContainer.classList.remove("is-visible");
-  }
+  // function hideDetails() {
+  //   modalContainer.classList.remove("is-visible");
+  // }
 
   function showLoadingMessage(text) {
     let container = document.querySelector(".container");
@@ -206,11 +206,11 @@ let pokemonRepository = (function () {
   //   }
   // });
 
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
-      hideDetails();
-    }
-  });
+  // window.addEventListener("keydown", (e) => {
+  //   if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
+  //     hideDetails();
+  //   }
+  // });
 
   return {
     getAll,
