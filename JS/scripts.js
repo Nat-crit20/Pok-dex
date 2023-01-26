@@ -87,6 +87,7 @@ let pokemonRepository = (function () {
     let button = document.createElement("button");
 
     button.classList.add("pokemon-button");
+    button.classList.add("list-group-item");
     button.setAttribute("data-toggle", "modal");
     button.innerText = inputList.name;
 
