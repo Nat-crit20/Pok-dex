@@ -10,9 +10,9 @@ let pokemonRepository = (function () {
   function loadList() {
     showLoadingMessage("Loading your pokemon now....");
 
-    let data = fetch(apiUrl);
+    const data = fetch(apiUrl);
 
-    let results = data
+    const results = data
       .then((res) => {
         setTimeout(() => hideLoadingMessage(), 500);
 
@@ -20,7 +20,7 @@ let pokemonRepository = (function () {
       })
       .then((res) => {
         res.results.forEach((item) => {
-          let pokemon = {
+          const pokemon = {
             name: item.name,
             detailUrl: item.url,
           };
@@ -37,7 +37,7 @@ let pokemonRepository = (function () {
   function loadDetails(item) {
     showLoadingMessage(`Loading ${item.name} data now...`);
 
-    let url = item.detailUrl;
+    const url = item.detailUrl;
     return fetch(url)
       .then((res) => {
         setTimeout(() => hideLoadingMessage(), 500);
@@ -77,8 +77,8 @@ let pokemonRepository = (function () {
   }
 
   let find = async function (pokemon) {
-    let item = {};
-    let data = fetch(`${apiSearchUrl}${pokemon.toLowerCase()}`);
+    const item = {};
+    const data = fetch(`${apiSearchUrl}${pokemon.toLowerCase()}`);
     await data
       .then((res) => {
         return res.json();
@@ -116,9 +116,9 @@ let pokemonRepository = (function () {
   }
 
   function addListItem(inputList) {
-    let list = document.querySelector(".pokemon-list");
-    let listItem = document.createElement("li");
-    let button = document.createElement("button");
+    const list = document.querySelector(".pokemon-list");
+    const listItem = document.createElement("li");
+    const button = document.createElement("button");
     listItem.classList.add("list-group-item");
 
     button.setAttribute("type", "button");
@@ -150,17 +150,17 @@ let pokemonRepository = (function () {
   };
 
   function showDetailsModal(pokemon) {
-    let modalBody = $(".modal-body");
-    let modalTitle = $(".modal-title");
+    const modalBody = $(".modal-body");
+    const modalTitle = $(".modal-title");
 
     modalBody.empty();
     modalTitle.empty();
 
-    let nameElement = $("<h1>" + pokemon.name + "</h1>");
-    let heightElement = $("<p>Height: " + pokemon.height + "</p>");
-    let weightElement = $("<p>Weight: " + pokemon.weight + "</p>");
-    let imageElement = $("<img>");
-    let typesElement = $("<p> Types: " + pokemon.type + "</p>");
+    const nameElement = $("<h1>" + pokemon.name + "</h1>");
+    const heightElement = $("<p>Height: " + pokemon.height + "</p>");
+    const weightElement = $("<p>Weight: " + pokemon.weight + "</p>");
+    const imageElement = $("<img>");
+    const typesElement = $("<p> Types: " + pokemon.type + "</p>");
     imageElement.attr("src", pokemon.imageUrl);
 
     modalTitle.append(nameElement);
@@ -173,14 +173,14 @@ let pokemonRepository = (function () {
   }
 
   function showLoadingMessage(text) {
-    let container = document.querySelector(".container");
-    let message = document.createElement("p");
+    const container = document.querySelector(".container");
+    const message = document.createElement("p");
     message.innerText = text;
     container.appendChild(message);
   }
 
   function hideLoadingMessage() {
-    let message = document.querySelector("p");
+    const message = document.querySelector("p");
     message.parentElement.removeChild(message);
   }
 
