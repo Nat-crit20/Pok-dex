@@ -99,8 +99,8 @@ let pokemonRepository = (function () {
   function addListener(element, func) {
     element.addEventListener("click", func);
   }
-
-  // Create modal
+  /* 
+  // Original Create modal
   function showDetails(pokemon) {
     // Make sure that the modal is empty
     modalContainer.innerHTML = "";
@@ -140,7 +140,10 @@ let pokemonRepository = (function () {
         console.log(err);
       });
   }
+*/
 
+  // Bootstrap modal
+  function showDetails(pokemon) {}
   // Hide Modal
   function hideDetails() {
     modalContainer.classList.remove("is-visible");
