@@ -49,6 +49,7 @@ let pokemonRepository = (function () {
         item.imageUrl = res.sprites.front_default;
         item.height = res.height;
         item.type = res.types;
+        item.weight = res.weight;
       })
       .catch((err) => {
         console.log(err);
@@ -161,7 +162,10 @@ let pokemonRepository = (function () {
     return loadDetails(pokemon)
       .then(() => {
         let name = $("<h1>" + pokemon.name + "</h1>");
+        let height = $("<p>Height: " + pokemon.height + "</p>");
+
         modalTitle.append(name);
+        modalBody.append(height);
         console.log(pokemon);
       })
       .catch((err) => {
