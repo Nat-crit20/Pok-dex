@@ -98,6 +98,15 @@ let pokemonRepository = (function () {
     console.log(item);
   };
 
+  function searchFunc() {
+    const form = document.querySelector("form");
+    const search = document.querySelector("input[type=search]");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      pokemonRepository.find(search.value);
+    });
+  }
+
   function addListItem(inputList) {
     let list = document.querySelector(".pokemon-list");
     let listItem = document.createElement("li");
@@ -172,6 +181,7 @@ let pokemonRepository = (function () {
     showDetails,
     loadList,
     loadDetails,
+    searchFunc,
   };
 })();
 pokemonRepository
@@ -180,8 +190,8 @@ pokemonRepository
     pokemonRepository.getAll().forEach((pokemon) => {
       pokemonRepository.addListItem(pokemon);
     });
+    pokemonRepository.searchFunc();
   })
   .catch((err) => {
     console.log(err);
   });
-pokemonRepository.find("charmander");
