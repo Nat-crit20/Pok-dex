@@ -75,13 +75,28 @@ let pokemonRepository = (function () {
     }
   }
 
-  function find(pokemon) {
-    let result = pokemonList.filter((key) => {
-      return pokemon === key.name;
-    });
-
-    return result[0];
-  }
+  let find = async function (pokemon) {
+    let item = {};
+    let data = fetch(`${apiUrl}${pokemon}`);
+    await data
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        item.name = res.name;
+        item.imageUrl = res.sprites.front_default;
+        item.height = res.height;
+        item.type = [];
+        res.types.forEach((element) => {
+          item.type.push(element.type.name);
+        });
+        item.weight = res.weight;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+    console.log(item);
+  };
 
   function addListItem(inputList) {
     let list = document.querySelector(".pokemon-list");
@@ -169,3 +184,4 @@ pokemonRepository
   .catch((err) => {
     console.log(err);
   });
+pokemonRepository.find("charmander");
