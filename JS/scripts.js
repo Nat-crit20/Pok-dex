@@ -155,32 +155,32 @@ let pokemonRepository = (function () {
 */
 
   // Bootstrap modal
-  function showDetails(pokemon) {
+  let showDetails = async function (pokemon) {
     let modalBody = $(".modal-body");
     let modalTitle = $(".modal-title");
 
     modalBody.empty();
     modalTitle.empty();
 
-    return loadDetails(pokemon)
-      .then(() => {
-        let nameElement = $("<h1>" + pokemon.name + "</h1>");
-        let heightElement = $("<p>Height: " + pokemon.height + "</p>");
-        let weightElement = $("<p>Weight: " + pokemon.weight + "</p>");
-        let imageElement = $("<img>");
-        let typesElement = $("<p> Types: " + pokemon.type + "</p>");
-        imageElement.attr("src", pokemon.imageUrl);
-        modalTitle.append(nameElement);
-        modalBody.append(heightElement);
-        modalBody.append(weightElement);
-        modalBody.append(typesElement);
-        modalBody.append(imageElement);
-        console.log(pokemon);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
+    await loadDetails(pokemon).catch((err) => {
+      console.log(err);
+    });
+
+    let nameElement = $("<h1>" + pokemon.name + "</h1>");
+    let heightElement = $("<p>Height: " + pokemon.height + "</p>");
+    let weightElement = $("<p>Weight: " + pokemon.weight + "</p>");
+    let imageElement = $("<img>");
+    let typesElement = $("<p> Types: " + pokemon.type + "</p>");
+    imageElement.attr("src", pokemon.imageUrl);
+
+    modalTitle.append(nameElement);
+    modalBody.append(heightElement);
+    modalBody.append(weightElement);
+    modalBody.append(typesElement);
+    modalBody.append(imageElement);
+
+    return;
+  };
 
   // Hide Modal
   function hideDetails() {
