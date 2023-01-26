@@ -163,9 +163,13 @@ let pokemonRepository = (function () {
       .then(() => {
         let name = $("<h1>" + pokemon.name + "</h1>");
         let height = $("<p>Height: " + pokemon.height + "</p>");
-
+        let weight = $("<p>Weight: " + pokemon.weight + "</p>");
+        let image = $("<img>");
+        image.attr("src", pokemon.imageUrl);
         modalTitle.append(name);
         modalBody.append(height);
+        modalBody.append(weight);
+        modalBody.append(image);
         console.log(pokemon);
       })
       .catch((err) => {
