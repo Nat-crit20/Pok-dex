@@ -87,6 +87,7 @@ let pokemonRepository = (function () {
     let button = document.createElement("button");
 
     button.classList.add("pokemon-button");
+    button.setAttribute("data-toggle", "modal");
     button.innerText = inputList.name;
 
     listItem.appendChild(button);
@@ -143,7 +144,23 @@ let pokemonRepository = (function () {
 */
 
   // Bootstrap modal
-  function showDetails(pokemon) {}
+  function showDetails(pokemon) {
+    let modalHeader = $(".modal-header");
+    let modalBody = $(".modal-body");
+    let modalTitle = $(".modal-title");
+
+    modalBody.empty();
+    modalTitle.empty();
+
+    return loadDetails(pokemon)
+      .then(() => {
+        console.log(pokemon);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   // Hide Modal
   function hideDetails() {
     modalContainer.classList.remove("is-visible");
@@ -161,12 +178,12 @@ let pokemonRepository = (function () {
     message.parentElement.removeChild(message);
   }
 
-  modalContainer.addEventListener("click", (e) => {
-    let target = e.target;
-    if (target === modalContainer) {
-      hideDetails();
-    }
-  });
+  // modalContainer.addEventListener("click", (e) => {
+  //   let target = e.target;
+  //   if (target === modalContainer) {
+  //     hideDetails();
+  //   }
+  // });
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && modalContainer.classList.contains("is-visible")) {
