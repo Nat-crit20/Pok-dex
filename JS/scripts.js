@@ -1,6 +1,7 @@
 let pokemonRepository = (function () {
-  let pokemonList = [];
-  const apiUrl = `https://pokeapi.co/api/v2/pokemon/`;
+  const pokemonList = [];
+  const apiUrl = `https://pokeapi.co/api/v2/pokemon/?limit=905`;
+  const apiSearchUrl = `https://pokeapi.co/api/v2/pokemon/`;
 
   function getAll() {
     return pokemonList;
@@ -77,7 +78,7 @@ let pokemonRepository = (function () {
 
   let find = async function (pokemon) {
     let item = {};
-    let data = fetch(`${apiUrl}${pokemon.toLowerCase()}`);
+    let data = fetch(`${apiSearchUrl}${pokemon.toLowerCase()}`);
     await data
       .then((res) => {
         return res.json();
