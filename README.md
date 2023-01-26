@@ -21,6 +21,7 @@ Trainers should be able to:
 ### Links
 
 - Live Site URL: [https://nat-crit20.github.io/Pok-dex/](https://nat-crit20.github.io/Pok-dex/)
+- Original Api : [https://pokeapi.co/api/v2/pokemon/](https://pokeapi.co/api/v2/pokemon/)
 
 ## My process
 
