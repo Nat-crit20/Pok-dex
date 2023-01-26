@@ -5,6 +5,9 @@ ul {
   list-style: none;
   padding: 0;
 }
+.container {
+  padding-top: 100px;
+}
 
 /* pokemon buttons */
 .pokemon-button {
