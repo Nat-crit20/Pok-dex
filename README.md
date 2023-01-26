@@ -21,16 +21,17 @@ Trainers should be able to:
 ### Links
 
 - Live Site URL: [https://nat-crit20.github.io/Pok-dex/](https://nat-crit20.github.io/Pok-dex/)
-- Original Api : [https://pokeapi.co/api/v2/pokemon/](https://pokeapi.co/api/v2/pokemon/)
+- Api used : [https://pokeapi.co/api/v2/pokemon/](https://pokeapi.co/api/v2/pokemon/)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
-- CSS custom properties
+- HTML5 markup
+- CSS
+- Bootstrap
 - JavaScript
 
 ### Continued development
 
-I would like to continue to learn more about how I can implement async javascript into my code.
+Currently I would like to work more on the styles of the page.
