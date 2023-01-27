@@ -4,6 +4,11 @@ body {
 .container {
   padding-top: 100px;
 }
+@media all and (max-width: 500px) {
+  .container {
+    padding-top: 200px;
+  }
+}
 
 /* pokemon buttons */
 .pokemon-button {
