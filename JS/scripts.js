@@ -1,7 +1,6 @@
 let pokemonRepository = (function () {
   const pokemonList = [];
-  const apiUrl = `https://pokeapi.co/api/v2/pokemon/?limit=905`;
-  const apiSearchUrl = `https://pokeapi.co/api/v2/pokemon/`;
+  const apiUrl = `https://pokeapi.co/api/v2/pokemon/`;
 
   function getAll() {
     return pokemonList;
@@ -10,7 +9,7 @@ let pokemonRepository = (function () {
   function loadList() {
     showLoadingMessage("Loading your pokemon now....");
 
-    const data = fetch(apiUrl);
+    const data = fetch(`${apiUrl}?limit=905`);
 
     const results = data
       .then((res) => {
@@ -78,7 +77,7 @@ let pokemonRepository = (function () {
 
   let find = async function (pokemon) {
     const item = {};
-    const data = fetch(`${apiSearchUrl}${pokemon.toLowerCase()}`);
+    const data = fetch(`${apiUrl}${pokemon.toLowerCase()}`);
     await data
       .then((res) => {
         return res.json();
