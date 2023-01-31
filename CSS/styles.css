@@ -23,12 +23,24 @@ body {
 }
 
 .modal-content {
-  /* height: 285px; */
   background-image: url("../img/pokedex-screen.png");
-  background-repeat: no-repeat; /* Do not repeat the image */
+  background-repeat: no-repeat;
   background-color: #eb3333;
   background-size: contain;
   background-position: top;
+}
+
+.modal-header {
+  margin: 0;
+  padding: 0.5rem 4rem;
+  border: none;
+  color: white;
+}
+.modal-title h1 {
+  font-size: 1.5rem;
+}
+.modal-header .close {
+  padding: 0rem;
 }
 .modal-head {
   width: 100%;
