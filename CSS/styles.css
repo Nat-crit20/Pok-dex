@@ -22,6 +22,14 @@ body {
   cursor: pointer;
 }
 
+.modal-content {
+  /* height: 285px; */
+  background-image: url("../img/pokedex-screen.png");
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-color: #eb3333;
+  background-size: contain;
+  background-position: top;
+}
 .modal-head {
   width: 100%;
 }
@@ -30,12 +38,4 @@ body {
 }
 .modal img {
   width: 150px;
-}
-
-.modal-close {
-  float: right;
-  border: 0;
-  background: none;
-  color: #777;
-  cursor: pointer;
 }
