@@ -12,11 +12,6 @@ body {
 .container {
   padding-top: 100px;
 }
-@media all and (max-width: 500px) {
-  .container {
-    padding-top: 200px;
-  }
-}
 
 /* pokemon buttons */
 .pokemon-list {
@@ -87,4 +82,20 @@ button[type="submit"]:hover {
 }
 .modal img {
   width: 150px;
+}
+
+@media all and (max-width: 500px) {
+  .container {
+    padding-top: 200px;
+  }
+  .pokemon-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 3rem;
+    grid-row-gap: 1rem;
+  }
+  .pokemon-button {
+    width: 20rem;
+    height: 3rem;
+  }
 }
