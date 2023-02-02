@@ -1,6 +1,14 @@
 body {
   text-align: center;
-  background-color: #8ce3fb;
+  background-color: #0abde9;
+}
+
+.navbar {
+  background-image: url("../img/pokeball-background.png");
+  background-size: cover;
+  background-color: #eb3333;
+  background-repeat: no-repeat;
+  background-position: left;
 }
 .container {
   padding-top: 100px;
@@ -22,7 +30,7 @@ body {
 }
 .list-group-item {
   border: none;
-  background-color: #8ce3fb;
+  background-color: #0abde9;
 }
 .pokemon-button {
   width: 10rem;
@@ -35,6 +43,8 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left;
+  background-color: #131f58;
+  color: #dcd7d6;
 }
 
 .modal-content {
