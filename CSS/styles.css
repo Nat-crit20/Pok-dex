@@ -47,6 +47,14 @@ body {
   color: #dcd7d6;
 }
 
+button[type="submit"] {
+  background-color: #131f58;
+  color: #dcd7d6;
+}
+button[type="submit"]:hover {
+  background-color: #0abde9;
+}
+
 .modal-content {
   background-image: url("../img/pokedex-screen.png");
   background-repeat: no-repeat;
