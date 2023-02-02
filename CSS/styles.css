@@ -6,7 +6,6 @@ body {
 .navbar {
   background-image: url("../img/pokeball-background.png");
   background-size: cover;
-  background-color: #eb3333;
   background-repeat: no-repeat;
   background-position: left;
 }
@@ -55,29 +54,34 @@ button[type="submit"]:hover {
   background-color: #0abde9;
 }
 
-.modal-content {
-  background-image: url("../img/pokedex-screen.png");
-  background-repeat: no-repeat;
-  background-color: #eb3333;
-  background-size: contain;
-  background-position: top;
-}
-
 .modal-header {
+  display: flex;
   margin: 0;
   padding: 0.5rem 4rem;
   border: none;
-  color: white;
+  color: black;
+  border-bottom: 2px solid #131f58;
 }
 .modal-title h1 {
   font-size: 1.5rem;
 }
 .modal-header .close {
-  padding: 0rem;
+  align-self: center;
+  padding: 0.5rem;
 }
+.modal-body {
+  background-color: #0abde9;
+  color: #131f58;
+  background-image: url("../img/pokeball-image.png");
+  background-position: center 20%;
+  background-size: 150px;
+  background-repeat: no-repeat;
+}
+
 .modal-head {
   width: 100%;
 }
+
 .modal-info {
   align-self: flex-start;
 }
