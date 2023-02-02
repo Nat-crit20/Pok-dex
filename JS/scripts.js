@@ -2,10 +2,12 @@ let pokemonRepository = (function () {
   const pokemonList = [];
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/`;
 
+  //This function returns all pokemon in the array
   function getAll() {
     return pokemonList;
   }
 
+  //This function loads pokemon data
   function loadList() {
     showLoadingMessage("Loading your pokemon now....");
 
@@ -33,6 +35,7 @@ let pokemonRepository = (function () {
     return results;
   }
 
+  //this function loads additional details about a pokemon
   function loadDetails(item) {
     showLoadingMessage(`Loading ${item.name} data now...`);
 
