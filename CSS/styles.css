@@ -1,5 +1,6 @@
 body {
   text-align: center;
+  background-color: #8ce3fb;
 }
 .container {
   padding-top: 100px;
@@ -11,15 +12,29 @@ body {
 }
 
 /* pokemon buttons */
+.pokemon-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 3rem;
+  grid-row-gap: 2.5rem;
+  justify-items: center;
+  align-items: center;
+}
+.list-group-item {
+  border: none;
+  background-color: #8ce3fb;
+}
 .pokemon-button {
-  width: 70%;
-  max-width: 500px;
-  height: 3.3rem;
-  margin: 1rem 0;
+  width: 10rem;
+  height: 2rem;
   text-align: center;
   font-size: 1.2rem;
   padding: 0 1rem;
   cursor: pointer;
+  background-image: url("../img/pokeball-image.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left;
 }
 
 .modal-content {
