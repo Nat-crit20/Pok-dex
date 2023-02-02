@@ -1,0 +1,104 @@
+body {
+  text-align: center;
+  background-color: #0abde9;
+}
+.navbar {
+  background-image: url("../img/pokeball-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.container {
+  padding-top: 100px;
+}
+.pokemon-list {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 3rem 1fr 3rem 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 3rem;
+  grid-row-gap: 2.5rem;
+  justify-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.list-group-item {
+  border: none;
+  background-color: #0abde9;
+}
+.pokemon-button {
+  width: 10rem;
+  height: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  padding: 0 1rem;
+  cursor: pointer;
+  background-image: url("../img/pokeball-image.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left;
+  background-color: #131f58;
+  color: #dcd7d6;
+}
+button[type="submit"] {
+  background-color: #131f58;
+  color: #dcd7d6;
+}
+button[type="submit"]:hover {
+  background-color: #0abde9;
+}
+.modal-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0;
+  padding: 0.5rem 4rem;
+  border: none;
+  color: black;
+  border-bottom: 2px solid #131f58;
+}
+.modal-title h1 {
+  font-size: 1.5rem;
+}
+.modal-header .close {
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+  padding: 0.5rem;
+}
+.modal-body {
+  background-color: #0abde9;
+  color: #131f58;
+  background-image: url("../img/pokeball-image.png");
+  background-position: center 20%;
+  background-size: 150px;
+  background-repeat: no-repeat;
+}
+.modal-head {
+  width: 100%;
+}
+.modal-info {
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+.modal img {
+  width: 150px;
+}
+@media all and (max-width: 500px) {
+  .container {
+    padding-top: 200px;
+  }
+  .pokemon-list {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap: 3rem;
+    grid-row-gap: 1rem;
+  }
+  .pokemon-button {
+    width: 20rem;
+    height: 3rem;
+  }
+}
