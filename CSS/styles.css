@@ -1,6 +1,12 @@
+:root {
+  --primary-background: #0abde9;
+  --secondary-background: #131f58;
+  --text: #dcd7d6;
+}
+
 body {
   text-align: center;
-  background-color: #0abde9;
+  background-color: var(--primary-background);
 }
 
 .navbar {
@@ -24,7 +30,7 @@ body {
 }
 .list-group-item {
   border: none;
-  background-color: #0abde9;
+  background-color: var(--primary-background);
 }
 .pokemon-button {
   width: 10rem;
@@ -37,16 +43,16 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left;
-  background-color: #131f58;
-  color: #dcd7d6;
+  background-color: var(--secondary-background);
+  color: var(--text);
 }
 
 button[type="submit"] {
-  background-color: #131f58;
-  color: #dcd7d6;
+  background-color: var(--secondary-background);
+  color: var(--text);
 }
 button[type="submit"]:hover {
-  background-color: #0abde9;
+  background-color: var(--primary-background);
 }
 
 .modal-header {
@@ -55,7 +61,7 @@ button[type="submit"]:hover {
   padding: 0.5rem 4rem;
   border: none;
   color: black;
-  border-bottom: 2px solid #131f58;
+  border-bottom: 2px solid var(--secondary-background);
 }
 .modal-title h1 {
   font-size: 1.5rem;
@@ -65,8 +71,8 @@ button[type="submit"]:hover {
   padding: 0.5rem;
 }
 .modal-body {
-  background-color: #0abde9;
-  color: #131f58;
+  background-color: var(--primary-background);
+  color: var(--secondary-background);
   background-image: url("../img/pokeball-image.png");
   background-position: center 20%;
   background-size: 150px;
