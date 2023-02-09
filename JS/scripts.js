@@ -1,5 +1,5 @@
 let pokemonRepository = (function () {
-  const pokemonList = [];
+  let pokemonList = [];
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/`;
 
   // returns all pokemon in the array
@@ -11,7 +11,7 @@ let pokemonRepository = (function () {
   function loadList() {
     showLoadingMessage("Loading your pokemon now....");
 
-    const data = fetch(`${apiUrl}?limit=905`);
+    const data = fetch(`${apiUrl}?limit=200`);
 
     const results = data
       .then((res) => {
@@ -111,9 +111,22 @@ let pokemonRepository = (function () {
     }
   };
 
+  function filterPokemon(pokemonInput) {
+    //Still work in progress
+    console.log(pokemonInput, pokemonList);
+    let result = pokemonList.filter((pokemon) => {
+      return pokemonInput === pokemon.name;
+    });
+    console.log(result);
+    return result;
+  }
+
   function searchFunc() {
     const form = document.querySelector("form");
     const search = document.querySelector("input[type=search]");
+    search.addEventListener("input", (e) => {
+      filterPokemon(search.value);
+    });
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       find(search.value);
@@ -194,6 +207,7 @@ let pokemonRepository = (function () {
     searchFunc,
   };
 })();
+
 pokemonRepository
   .loadList()
   .then(() => {
