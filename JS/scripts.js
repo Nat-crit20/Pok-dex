@@ -149,8 +149,6 @@ let pokemonRepository = (function () {
   // Bootstrap modal
   let showDetails = async function (pokemon) {
     const pokemonData = await loadDetails(pokemon);
-    console.log(pokemon);
-    console.log(pokemonData);
     return showDetailsModal(pokemonData);
   };
 
