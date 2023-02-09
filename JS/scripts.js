@@ -2,12 +2,12 @@ let pokemonRepository = (function () {
   const pokemonList = [];
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/`;
 
-  //This function returns all pokemon in the array
+  // returns all pokemon in the array
   function getAll() {
     return pokemonList;
   }
 
-  //This function loads pokemon data
+  // loads pokemon data
   function loadList() {
     showLoadingMessage("Loading your pokemon now....");
 
@@ -22,7 +22,7 @@ let pokemonRepository = (function () {
       .then((res) => {
         res.results.forEach((item) => {
           const pokemon = {
-            name: item.name,
+            name: item.name.slice(0, 1).toUpperCase() + item.name.slice(1),
             detailUrl: item.url,
           };
 
@@ -35,7 +35,7 @@ let pokemonRepository = (function () {
     return results;
   }
 
-  //this function loads additional details about a pokemon
+  //loads additional details about a pokemon
   function loadDetails(item) {
     showLoadingMessage(`Loading ${item.name} data now...`);
 
@@ -47,13 +47,16 @@ let pokemonRepository = (function () {
         return res.json();
       })
       .then((res) => {
-        item.imageUrl = res.sprites.front_default;
-        item.height = res.height;
-        item.type = [];
-        res.types.forEach((element) => {
-          item.type.push(element.type.name);
-        });
-        item.weight = res.weight;
+        const pokemonData = {
+          name: item.name,
+          imageUrl: res.sprites.front_default,
+          height: res.height,
+          type: res.types.map((element) => {
+            return element.type.name;
+          }),
+          weight: res.weight,
+        };
+        return pokemonData;
       })
       .catch((err) => {
         console.log(err);
@@ -67,6 +70,7 @@ let pokemonRepository = (function () {
     const pokemonParams = Object.keys(pokemon);
 
     let accept = true;
+    //Only accept pokemon with correct keys
     for (let i = 0; i < parameters.length; i++) {
       if (!pokemonParams.includes(parameters[i])) {
         accept = false;
@@ -144,10 +148,10 @@ let pokemonRepository = (function () {
 
   // Bootstrap modal
   let showDetails = async function (pokemon) {
-    await loadDetails(pokemon).catch((err) => {
-      console.log(err);
-    });
-    return showDetailsModal(pokemon);
+    const pokemonData = await loadDetails(pokemon);
+    console.log(pokemon);
+    console.log(pokemonData);
+    return showDetailsModal(pokemonData);
   };
 
   function showDetailsModal(pokemon) {
@@ -187,12 +191,8 @@ let pokemonRepository = (function () {
 
   return {
     getAll,
-    add,
-    find,
     addListItem,
-    showDetails,
     loadList,
-    loadDetails,
     searchFunc,
   };
 })();
