@@ -91,7 +91,7 @@ let pokemonRepository = (function () {
       })
       .then((res) => {
         showLoadingMessage(`Loading ${res.name} data now...`);
-        item.name = res.name;
+        item.name = res.name.slice(0, 1).toUpperCase() + res.name.slice(1);
         item.imageUrl = res.sprites.front_default;
         item.height = res.height;
         item.type = [];
@@ -113,12 +113,12 @@ let pokemonRepository = (function () {
 
   function filterPokemon(pokemonInput) {
     //Still work in progress
-    console.log(pokemonInput, pokemonList);
-    let result = pokemonList.filter((pokemon) => {
-      return pokemonInput.toLowerCase() === pokemon.name.toLowerCase();
+    pokemonList = pokemonList.filter((pokemon) => {
+      return pokemon.name.toLowerCase().startsWith(pokemonInput.toLowerCase());
     });
-    console.log(result);
-    return result;
+    console.log(pokemonList);
+
+    return pokemonList;
   }
 
   function searchFunc() {
