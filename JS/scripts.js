@@ -115,7 +115,6 @@ let pokemonRepository = (function () {
     pokemonFilterList = pokemonList.filter((pokemon) => {
       return pokemon.name.toLowerCase().startsWith(pokemonInput.toLowerCase());
     });
-    console.log(pokemonFilterList);
     updateListItems();
     pokemonFilterList.forEach((pokemon) => {
       pokemonRepository.addListItem(pokemon);
