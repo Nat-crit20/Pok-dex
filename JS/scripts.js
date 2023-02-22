@@ -115,7 +115,7 @@ let pokemonRepository = (function () {
     //Still work in progress
     console.log(pokemonInput, pokemonList);
     let result = pokemonList.filter((pokemon) => {
-      return pokemonInput === pokemon.name;
+      return pokemonInput.toLowerCase() === pokemon.name.toLowerCase();
     });
     console.log(result);
     return result;
