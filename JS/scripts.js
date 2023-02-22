@@ -1,7 +1,7 @@
 let pokemonRepository = (function () {
   let pokemonList = [];
   const apiUrl = `https://pokeapi.co/api/v2/pokemon/`;
-
+  let pokemonFilterList = [];
   // returns all pokemon in the array
   function getAll() {
     return pokemonList;
@@ -112,12 +112,14 @@ let pokemonRepository = (function () {
   };
 
   function filterPokemon(pokemonInput) {
-    //Still work in progress
-    pokemonList = pokemonList.filter((pokemon) => {
+    pokemonFilterList = pokemonList.filter((pokemon) => {
       return pokemon.name.toLowerCase().startsWith(pokemonInput.toLowerCase());
     });
-    console.log(pokemonList);
-
+    console.log(pokemonFilterList);
+    updateListItems();
+    pokemonFilterList.forEach((pokemon) => {
+      pokemonRepository.addListItem(pokemon);
+    });
     return pokemonList;
   }
 
@@ -131,6 +133,11 @@ let pokemonRepository = (function () {
       e.preventDefault();
       find(search.value);
     });
+  }
+
+  function updateListItems() {
+    const list = document.querySelector(".pokemon-list");
+    list.innerHTML = "";
   }
 
   function addListItem(inputList) {
